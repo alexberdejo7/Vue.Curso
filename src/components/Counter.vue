@@ -1,5 +1,5 @@
 <template>
-    <h2> Counter</h2>
+    <h2> {{customTittle }}</h2>
     <p> {{ counter }} <sup>2 </sup> = {{ squareCounter }}  </p>
     <div>
         <button v-on:click="increase">+1</button>
@@ -10,10 +10,25 @@
 
 <script>
 export default {
+    props: {
+        tittle: String,
+        start: {
+            type: Number,
+            default: 100,
+
+            validator( value ) {
+                return value >= 0
+            } 
+            // required: true
+        }
+
+    },
+
+    
     //name: 'Patitot'
     data() {
         return {
-            counter: 5
+            counter: this.start
         }
     },
     methods: {
@@ -34,6 +49,9 @@ export default {
         squareCounter() {
             
             return this.counter * this.counter
+        },
+        customTittle() {
+            return this.tittle ? this.tittle : 'Counter'
         }
     }
 
