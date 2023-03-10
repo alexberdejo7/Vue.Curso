@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Bases</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+
+    <div id="myApp" > 
+        <h1>Batman quotes  <small>{{ newText }} </small>   </h1>
+        <input
+          type="text"
+          v-model="newText"
+          v-on:keypress.enter="addQuote">
+
+
+        <ul>
+            <li v-for="({quote, author}, index) in quotes"> 
+                <span> {{ index +1, author }}  - {{quote}}</span>
+                <!-- <blockquote v-if="author "> - {{author}}</blockquote> -->
+                <blockquote v-show="author "> - {{author}}</blockquote>
+
+
+
+
+
+            </li>
+                
+        </ul>
+    </div>
+
+       
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./app.js"> </script>
+</body>
+</html>
